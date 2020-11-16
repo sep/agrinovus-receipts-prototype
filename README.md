@@ -1,4 +1,4 @@
-# agrinovous-web
+# agrinovus-receipts-prototype
 
 ## Project setup
 ```
