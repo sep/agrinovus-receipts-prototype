@@ -57,7 +57,7 @@
 import { WebCam } from 'vue-web-cam';
 
 export default {
-  name: 'HelloWorld',
+  name: 'ReceiptCaptor',
   components: { WebCam },
   data() {
     return {
