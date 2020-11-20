@@ -4,6 +4,7 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import App from './App.vue';
+import Home from './components/Home.vue';
 import ReceiptCaptor from './components/ReceiptCaptor.vue';
 
 Vue.use(VueRouter);
@@ -13,12 +14,21 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
 const routes = [
-  { path: '/camera', component: ReceiptCaptor },
+  {
+    name: 'home',
+    path: '/',
+    component: Home,
+  },
+  {
+    name: 'camera',
+    path: '/camera',
+    component: ReceiptCaptor,
+  },
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  base: __dirname,
+  base: '/agrinovus-receipts-prototype/',
   routes,
 });
 
