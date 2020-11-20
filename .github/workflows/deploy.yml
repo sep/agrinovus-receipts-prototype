@@ -19,7 +19,9 @@ jobs:
           node-version: '10.x'
 
       - name: Generate dist files
-        run: npm run build
+        run: |
+          npm install
+          npm run build
       
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.2.0
