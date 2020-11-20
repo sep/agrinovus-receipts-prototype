@@ -2,52 +2,36 @@
   <div class='container'>
     <div class='row'>
       <div class='col-md-6'>
-        <h2>Current Camera</h2>
-        <code v-if='device'>{{ device.label }}</code>
-        <div class='border'>
-          <web-cam
-            ref='webcam'
-            :device-id='deviceId'
-            width='100%'
-            @started='onStarted'
-            @stopped='onStopped'
-            @error='onError'
-            @cameras='onCameras'
-            @camera-change='onCameraChange'
-          />
-        </div>
+        <h1>Capture Ticket</h1>
+        <web-cam
+          ref='webcam'
+          :device-id='deviceId'
+          width='100%'
+          @cameras='onCameras'
+          @camera-change='onCameraChange'
+        />
 
-        <div class='row'>
-          <div class='col-md-12'>
-            <select v-model='camera'>
-              <option>-- Select Device --</option>
-              <option
-                v-for='device in devices'
-                :key='device.deviceId'
-                :value='device.deviceId'
-              >
-                {{ device.label }}
-              </option>
-            </select>
-          </div>
-          <div class='col-md-12'>
-            <button type='button' class='btn btn-primary' @click='onCapture'>
-              Capture Photo
-            </button>
-            <button type='button' class='btn btn-danger' @click='onStop'>
-              Stop Camera
-            </button>
-            <button type='button' class='btn btn-success' @click='onStart'>
-              Start Camera
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class='col-md-6'>
-        <h2>Captured Image</h2>
-        <figure class='figure'>
-          <img :src='img' class='img-responsive' />
-        </figure>
+        <b-row>
+          <b-col>
+            <b-button
+              :disabled='this.devices.length < 2'
+              size="lg"
+              variant="outline-secondary"
+              @click='onShuffleCamera'>
+              <b-icon icon="arrow-repeat" aria-label="Change Camera"></b-icon>
+            </b-button>
+          </b-col>
+          <b-col>
+            <b-button size="lg" variant="primary" @click='onCapture'>
+              <b-icon icon="camera-fill" aria-label="Take picture"></b-icon>
+            </b-button>
+          </b-col>
+          <b-col>
+            <b-link @click='onSaveTickets'>
+              <b-img :src='img' thumbnail fluid/>
+            </b-link>
+          </b-col>
+        </b-row>
       </div>
     </div>
   </div>
@@ -77,8 +61,7 @@ export default {
       this.deviceId = id;
     },
     devices() {
-      // Once we have a list select the first one
-      const { first } = this.devices;
+      const first = this.devices[0];
       if (first) {
         this.camera = first.deviceId;
         this.deviceId = first.deviceId;
@@ -89,29 +72,27 @@ export default {
     onCapture() {
       this.img = this.$refs.webcam.capture();
     },
-    onStarted(stream) {
-      console.log('On Started Event', stream);
-    },
-    onStopped(stream) {
-      console.log('On Stopped Event', stream);
-    },
-    onStop() {
-      this.$refs.webcam.stop();
-    },
-    onStart() {
-      this.$refs.webcam.start();
-    },
-    onError(error) {
-      console.log('On Error Event', error);
-    },
     onCameras(cameras) {
       this.devices = cameras;
-      console.log('On Cameras Event', cameras);
     },
     onCameraChange(deviceId) {
       this.deviceId = deviceId;
       this.camera = deviceId;
-      console.log('On Camera Change Event', deviceId);
+    },
+    onShuffleCamera() {
+      const currentIndex = this.devices.findIndex((n) => n.deviceId === this.deviceId);
+      const nextDevice = this.devices[currentIndex + 1];
+      const prevDevice = this.devices[currentIndex - 1];
+      if (nextDevice) {
+        this.camera = nextDevice.deviceId;
+        this.deviceId = nextDevice.deviceId;
+      } else if (prevDevice) {
+        this.camera = prevDevice.deviceId;
+        this.deviceId = prevDevice.deviceId;
+      }
+    },
+    onSaveTickets() {
+
     },
   },
 };
