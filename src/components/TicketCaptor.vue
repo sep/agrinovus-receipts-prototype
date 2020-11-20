@@ -1,7 +1,7 @@
 <template>
-  <div class='container'>
+  <div class='container p-4'>
     <b-row>
-      <div class='col-md-6 p-4'>
+      <div class='col-md-6'>
         <h1>Capture Ticket</h1>
         <web-cam
           ref='webcam'

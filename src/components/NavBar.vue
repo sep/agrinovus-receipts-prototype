@@ -7,7 +7,7 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item to="camera">Capture Ticket</b-nav-item>
-        <b-nav-item to="#" disabled>View Tickets</b-nav-item>
+        <b-nav-item to="tickets">View Tickets</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
