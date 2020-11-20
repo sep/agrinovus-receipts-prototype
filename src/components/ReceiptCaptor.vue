@@ -81,14 +81,11 @@ export default {
     },
     onShuffleCamera() {
       const currentIndex = this.devices.findIndex((n) => n.deviceId === this.deviceId);
-      const nextDevice = this.devices[currentIndex + 1];
-      const prevDevice = this.devices[currentIndex - 1];
+      const nextIndex = (currentIndex + 1) % this.devices.length;
+      const nextDevice = this.devices[nextIndex];
       if (nextDevice) {
         this.camera = nextDevice.deviceId;
         this.deviceId = nextDevice.deviceId;
-      } else if (prevDevice) {
-        this.camera = prevDevice.deviceId;
-        this.deviceId = prevDevice.deviceId;
       }
     },
     onSaveTickets() {
