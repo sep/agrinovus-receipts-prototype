@@ -1,7 +1,7 @@
 <template>
   <div class='container'>
-    <div class='row'>
-      <div class='col-md-6'>
+    <b-row>
+      <div class='col-md-6 p-4'>
         <h1>Capture Ticket</h1>
         <web-cam
           ref='webcam'
@@ -33,7 +33,7 @@
           </b-col>
         </b-row>
       </div>
-    </div>
+    </b-row>
   </div>
 </template>
 
