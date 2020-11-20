@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import App from './App.vue';
 import Home from './components/Home.vue';
-import ReceiptCaptor from './components/ReceiptCaptor.vue';
+import TicketCaptor from './components/TicketCaptor.vue';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
@@ -22,7 +22,7 @@ const routes = [
   {
     name: 'camera',
     path: '/camera',
-    component: ReceiptCaptor,
+    component: TicketCaptor,
   },
 ];
 

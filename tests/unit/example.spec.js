@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
-import ReceiptCaptor from '@/components/ReceiptCaptor.vue';
+import TicketCaptor from '@/components/TicketCaptor.vue';
 
-describe('ReceiptCaptor.vue', () => {
+describe('TicketCaptor.vue', () => {
   it('renders props.msg when passed', () => {
     const msg = 'new message';
-    const wrapper = shallowMount(ReceiptCaptor, {
+    const wrapper = shallowMount(TicketCaptor, {
       propsData: { msg },
     });
     expect(wrapper.text()).toMatch(msg);
