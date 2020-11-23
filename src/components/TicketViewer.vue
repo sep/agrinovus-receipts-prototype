@@ -21,11 +21,18 @@ export default {
     };
   },
   mounted() {
-    this.importAll(require.context('@/assets/tickets/', true, /\.png$/));
+    const staticImages = require.context('@/assets/tickets/', true, /\.png$/);
+    this.importContext(staticImages);
+
+    const uploadedImages = JSON.parse(localStorage.getItem('uploadedImages'));
+    this.importArray(uploadedImages);
   },
   methods: {
-    importAll(r) {
+    importContext(r) {
       r.keys().forEach((key) => (this.images.push({ pathLong: r(key), pathShort: key })));
+    },
+    importArray(images) {
+      images.forEach((path, index) => this.images.push({ pathLong: path, pathShort: index }));
     },
   },
 };
