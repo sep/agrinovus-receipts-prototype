@@ -1,4 +1,16 @@
-# agrinovus-receipts-prototype
+# Agrinovus Challenge Ticketing Solution
+
+## Ubiquitous Domain Language 
+<dl>
+    <dt>Elevator</dt>
+    <dd>The location that a truck driver takes soy/corn to be processed and sold.</dd>
+    <dt>Terminal</dt>
+    <dd>The rail or barge that a truck driver takes soy/corn to be processed and sold.</dd>
+    <dt>Ticket</dt>
+    <dd>The hall summary handed to the driver on location once material has been processed.</dd>
+    <dt>Receipt</dt>
+    <dd>The invoice sent to the farmer sometime after the material has been dropped off to an elevator or terminal.</dd>
+</dl>
 
 ## Project setup
 ```
@@ -29,6 +41,3 @@ yarn test:e2e
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
