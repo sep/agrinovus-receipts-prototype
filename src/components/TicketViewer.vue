@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     importAll(r) {
-      r.keys().forEach(key => (this.images.push({ pathLong: r(key), pathShort: key })));
+      r.keys().forEach((key) => (this.images.push({ pathLong: r(key), pathShort: key })));
     },
   },
 };
