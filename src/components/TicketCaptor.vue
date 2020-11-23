@@ -3,15 +3,17 @@
     <b-row>
       <div class='col-md-6'>
         <h1>Capture Ticket</h1>
+        <b-img v-if='this.img' :src='this.img' fluid/>
         <web-cam
+          :hidden="img"
           ref='webcam'
+          height='100%'
           :device-id='deviceId'
-          width='100%'
           @cameras='onCameras'
           @camera-change='onCameraChange'
         />
 
-        <b-row>
+        <b-row class='actions'>
           <b-col>
             <b-button
               :disabled='this.devices.length < 2'
@@ -22,14 +24,17 @@
             </b-button>
           </b-col>
           <b-col>
-            <b-button size="lg" variant="primary" @click='onCapture'>
+            <b-button v-if='this.img' size="lg" variant="primary" @click='onSaveTicket'>
+              <b-icon  icon="upload" aria-label="Save picture"></b-icon>
+            </b-button>
+            <b-button v-else size="lg" variant="primary" @click='onCapture'>
               <b-icon icon="camera-fill" aria-label="Take picture"></b-icon>
             </b-button>
           </b-col>
           <b-col>
-            <b-link @click='onSaveTickets'>
-              <b-img :src='img' thumbnail fluid/>
-            </b-link>
+            <b-button v-if='this.img' size="lg" variant="secondary" @click='onCancel'>
+              <b-icon  icon="x" aria-label="Reurn to camera"></b-icon>
+            </b-button>
           </b-col>
         </b-row>
       </div>
@@ -88,9 +93,26 @@ export default {
         this.deviceId = nextDevice.deviceId;
       }
     },
-    onSaveTickets() {
+    onSaveTicket() {
+      const images = JSON.parse(localStorage.getItem('uploadedImages')) || [];
 
+      images.push(this.img);
+
+      localStorage.setItem('uploadedImages', JSON.stringify(images));
+
+      this.img = null;
+    },
+    onCancel() {
+      this.img = null;
     },
   },
 };
 </script>
+
+<style scoped>
+.actions {
+  position: fixed;
+  bottom: 1em;
+  width: 100%;
+}
+</style>
