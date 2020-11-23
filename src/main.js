@@ -3,10 +3,11 @@ import VueRouter from 'vue-router';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-import App from './App.vue';
-import Home from './components/Home.vue';
-import TicketCaptor from './components/TicketCaptor.vue';
-import TicketViewer from './components/TicketViewer.vue';
+import App from '@/App.vue';
+import Home from '@/components/Home.vue';
+import TicketCaptor from '@/components/TicketCaptor.vue';
+import TicketViewer from '@/components/TicketViewer.vue';
+import LogIn from '@/components/LogIn.vue';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
@@ -29,6 +30,11 @@ const routes = [
     name: 'tickets',
     path: '/tickets',
     component: TicketViewer,
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: LogIn,
   },
 ];
 

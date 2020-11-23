@@ -15,8 +15,7 @@
           <template #button-content>
             <em><BIconPersonFill/></em>
           </template>
-          <b-dropdown-item to="#">Profile</b-dropdown-item>
-          <b-dropdown-item to="#">Sign Out</b-dropdown-item>
+          <b-dropdown-item to="login">Sign Up</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
