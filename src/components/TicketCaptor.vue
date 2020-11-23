@@ -1,6 +1,14 @@
 <template>
   <div class='container p-4'>
-    <b-row>
+    <b-alert
+      class="fixed-top"
+      :show="dismissCountDown"
+      dismissible
+      fade
+      variant="success"
+      @dismissed="dismissCountDown=0"
+      @dismiss-count-down="countDownChanged">Ticket uploaded successfully.</b-alert>
+    <b-row align-h="center">
       <div class='col-md-6'>
         <h1>Capture Ticket</h1>
         <b-img v-if='this.img' :src='this.img' fluid/>
@@ -13,7 +21,7 @@
           @camera-change='onCameraChange'
         />
 
-        <b-row class='actions'>
+        <b-row class='actions' align-h="center">
           <b-col>
             <b-button
               :disabled='this.devices.length < 2'
@@ -54,6 +62,8 @@ export default {
       camera: null,
       deviceId: null,
       devices: [],
+      dismissSecs: 3,
+      dismissCountDown: 0,
     };
   },
   computed: {
@@ -95,15 +105,20 @@ export default {
     },
     onSaveTicket() {
       const images = JSON.parse(localStorage.getItem('uploadedImages')) || [];
-
       images.push(this.img);
-
       localStorage.setItem('uploadedImages', JSON.stringify(images));
 
       this.img = null;
+      this.showAlert();
     },
     onCancel() {
       this.img = null;
+    },
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
     },
   },
 };
@@ -114,5 +129,6 @@ export default {
   position: fixed;
   bottom: 1em;
   width: 100%;
+  margin-left: -24px;
 }
 </style>
