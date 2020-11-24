@@ -1,5 +1,5 @@
 <template>
-  <div class='container'>
+  <b-container>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group label="Email address:" label-align="left" label-for="input-1">
         <b-form-input
@@ -29,22 +29,20 @@
                 name="radios-btn-default"
                 button-variant="outline-secondary"
             >
-            <b-form-radio value="driver"><BIconTruck/><br><span>Driver</span></b-form-radio>
-            <b-form-radio value="farmer"><BIconSun/><br><span>Farmer</span></b-form-radio>
+            <b-form-radio value="driver"><b-icon-truck/><br><span>Driver</span></b-form-radio>
+            <b-form-radio value="farmer"><b-icon-sun/><br><span>Farmer</span></b-form-radio>
         </b-form-radio-group>
       </b-form-group>
 
       <b-button type="submit" variant="primary" block>Sign Up</b-button>
     </b-form>
-  </div>
+  </b-container>
 </template>
 
 <script>
-import { BIconTruck, BIconSun } from 'bootstrap-vue';
 
 export default {
   name: 'LogIn',
-  components: [BIconTruck, BIconSun],
   data() {
     return {
       form: {

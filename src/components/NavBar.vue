@@ -11,19 +11,16 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" right>
-        <b-nav-item to="/login" v-if="!persona"><BIconPersonFill/> Sign Up</b-nav-item>
-        <b-nav-item to="/account" v-else><BIconPersonFill/></b-nav-item>
+        <b-nav-item to="/login" v-if="!persona"><b-icon-person-fill/> Sign Up</b-nav-item>
+        <b-nav-item to="/account" v-else><b-icon-person-fill/></b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
 <script>
-import BIconPersonFill from 'bootstrap-vue';
-
 export default {
   name: 'NavBar',
-  components: [BIconPersonFill],
   data() {
     return {
       persona: '',

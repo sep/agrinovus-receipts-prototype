@@ -1,5 +1,5 @@
 <template>
-  <div class='p-4'>
+  <b-container>
     <h1>View Tickets</h1>
     <b-card-group deck :key="img.pathShort" v-for="(img, i) in images">
         <b-card overlay :img-src="img.pathLong" align="right">
@@ -9,7 +9,7 @@
             </b-card-text>
         </b-card>
     </b-card-group>
-  </div>
+  </b-container>
 </template>
 
 <script>

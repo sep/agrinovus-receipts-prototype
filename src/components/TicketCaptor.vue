@@ -1,5 +1,5 @@
 <template>
-  <div class='container'>
+  <b-container>
     <b-alert
       class="fixed-top"
       :show="dismissCountDown"
@@ -47,7 +47,7 @@
         </b-row>
       </div>
     </b-row>
-  </div>
+  </b-container>
 </template>
 
 <script>
