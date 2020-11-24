@@ -17,7 +17,7 @@
             </b-button>
           </b-input-group-append>
         </b-input-group>
-        <b-input-group prepend="Driver">
+        <b-input-group :prepend="`${persona == 'driver' ? 'Farmer' : 'Driver'}`">
           <b-form-input id="driver-field"></b-form-input>
           <b-input-group-append>
             <b-button variant="info" @click="onAddDriver">
@@ -25,8 +25,12 @@
             </b-button>
           </b-input-group-append>
         </b-input-group>
-        <template v-for="driver in drivers">
-          <div :key="driver.guid"><b-icon-truck/> {{ driver.name }}</div>
+        <template v-for="account in accounts">
+          <div :key="account.guid">
+            <b-icon-truck v-if="persona == 'farmer'"/>
+            <b-icon-sun v-else/>
+            {{ account.name }}
+          </div>
         </template>
       </b-col>
     </b-row>
@@ -43,7 +47,7 @@ export default {
       username: '',
       email: '',
       persona: '',
-      drivers: [],
+      accounts: [],
     };
   },
   computed: {
@@ -55,7 +59,7 @@ export default {
     this.username = this.$route.query.name;
     this.email = this.$route.query.email;
     this.persona = this.$route.query.persona;
-    this.drivers = JSON.parse(localStorage.getItem('drivers'));
+    this.accounts = JSON.parse(localStorage.getItem('accounts'));
   },
   watch: {
     $route(to) {
@@ -74,11 +78,11 @@ export default {
         name: new Chance().name({ nationality: 'en' }),
       };
 
-      const drivers = JSON.parse(localStorage.getItem('drivers')) || [];
-      drivers.push(newDriver);
-      localStorage.setItem('drivers', JSON.stringify(drivers));
+      const accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+      accounts.push(newDriver);
+      localStorage.setItem('accounts', JSON.stringify(accounts));
 
-      this.drivers = drivers;
+      this.accounts = accounts;
       driverInput.value = null;
     },
   },
