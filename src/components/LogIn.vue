@@ -1,5 +1,5 @@
 <template>
-  <div class='container p-4'>
+  <div class='container'>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group label="Email address:" label-align="left" label-for="input-1">
         <b-form-input
@@ -52,14 +52,13 @@ export default {
         name: '',
         persona: '',
       },
-      personas: ['Driver', 'Farmer'],
       show: true,
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      alert(JSON.stringify(this.form));
+      this.$router.push({ name: 'account', query: this.form });
     },
     onReset(evt) {
       evt.preventDefault();

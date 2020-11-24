@@ -8,6 +8,7 @@ import Home from '@/components/Home.vue';
 import TicketCaptor from '@/components/TicketCaptor.vue';
 import TicketViewer from '@/components/TicketViewer.vue';
 import LogIn from '@/components/LogIn.vue';
+import Account from '@/components/Account.vue';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
@@ -35,6 +36,11 @@ const routes = [
     name: 'login',
     path: '/login',
     component: LogIn,
+  },
+  {
+    name: 'account',
+    path: '/account',
+    component: Account,
   },
 ];
 

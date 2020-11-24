@@ -1,5 +1,5 @@
 <template>
-  <div class='container p-4'>
+  <div class='container'>
     <b-alert
       class="fixed-top"
       :show="dismissCountDown"
