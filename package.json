@@ -16,6 +16,8 @@
     "core-js": "^3.6.5",
     "es6-promise": "^4.2.8",
     "vue": "^2.6.12",
+    "vue-form-wizard": "^0.8.4",
+    "vue-head": "^2.2.0",
     "vue-router": "^3.4.9",
     "vue-web-cam": "^1.9.0",
     "vuex": "^3.6.0"
