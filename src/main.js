@@ -69,6 +69,11 @@ const store = new Vuex.Store({
     setEmail(state, newEmail) {
       state.email = newEmail;
     },
+    clear(state) {
+      state.persona = '';
+      state.name = '';
+      state.email = '';
+    },
   },
 });
 
