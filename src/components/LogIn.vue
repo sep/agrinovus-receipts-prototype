@@ -57,13 +57,17 @@ export default {
   methods: {
     ...mapMutations([
       'setPersona',
+      'setName',
+      'setEmail',
     ]),
     onSubmit(evt) {
       evt.preventDefault();
 
       this.setPersona(this.form.persona);
+      this.setName(this.form.name);
+      this.setEmail(this.form.email);
 
-      this.$router.push({ name: 'account', query: this.form });
+      this.$router.push({ name: 'account' });
     },
     onReset(evt) {
       evt.preventDefault();

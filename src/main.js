@@ -56,10 +56,18 @@ const router = new VueRouter({
 const store = new Vuex.Store({
   state: {
     persona: '',
+    name: '',
+    email: '',
   },
   mutations: {
     setPersona(state, newPersona) {
       state.persona = newPersona;
+    },
+    setName(state, newName) {
+      state.name = newName;
+    },
+    setEmail(state, newEmail) {
+      state.email = newEmail;
     },
   },
 });

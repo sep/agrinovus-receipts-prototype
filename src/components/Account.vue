@@ -44,9 +44,6 @@ export default {
   name: 'Account',
   data() {
     return {
-      username: '',
-      email: '',
-      persona: '',
       accounts: [],
     };
   },
@@ -54,17 +51,18 @@ export default {
     accountId() {
       return new Chance().guid();
     },
+    username() {
+      return this.$store.state.name;
+    },
+    email() {
+      return this.$store.state.email;
+    },
+    persona() {
+      return this.$store.state.persona;
+    },
   },
   mounted() {
-    this.username = this.$route.query.name;
-    this.email = this.$route.query.email;
-    this.persona = this.$route.query.persona;
     this.accounts = JSON.parse(localStorage.getItem('accounts'));
-  },
-  watch: {
-    $route(to) {
-      this.username = to.query.name;
-    },
   },
   methods: {
     onCopy() {
