@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'LogIn',
@@ -54,8 +55,14 @@ export default {
     };
   },
   methods: {
+    ...mapMutations([
+      'setPersona',
+    ]),
     onSubmit(evt) {
       evt.preventDefault();
+
+      this.setPersona(this.form.persona);
+
       this.$router.push({ name: 'account', query: this.form });
     },
     onReset(evt) {

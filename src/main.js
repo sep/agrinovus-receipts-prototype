@@ -1,8 +1,10 @@
 import Vue from 'vue';
+import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'es6-promise/auto';
 import App from '@/App.vue';
 import Home from '@/components/Home.vue';
 import TicketCaptor from '@/components/TicketCaptor.vue';
@@ -10,6 +12,7 @@ import TicketViewer from '@/components/TicketViewer.vue';
 import LogIn from '@/components/LogIn.vue';
 import Account from '@/components/Account.vue';
 
+Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
@@ -50,7 +53,19 @@ const router = new VueRouter({
   routes,
 });
 
+const store = new Vuex.Store({
+  state: {
+    persona: '',
+  },
+  mutations: {
+    setPersona(state, newPersona) {
+      state.persona = newPersona;
+    },
+  },
+});
+
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount('#app');

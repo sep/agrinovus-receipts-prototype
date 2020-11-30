@@ -21,16 +21,9 @@
 <script>
 export default {
   name: 'NavBar',
-  data() {
-    return {
-      persona: '',
-      username: '',
-    };
-  },
-  watch: {
-    $route(to) {
-      this.persona = to.query.persona;
-      this.username = to.query.name;
+  computed: {
+    persona() {
+      return this.$store.state.persona;
     },
   },
 };
