@@ -8,6 +8,7 @@
       <b-navbar-nav>
         <b-nav-item to="/camera" v-if="persona == 'driver'">Capture Ticket</b-nav-item>
         <b-nav-item to="/tickets" v-if="persona">View Tickets</b-nav-item>
+        <b-nav-item to="/dashboard" v-if="persona">Dashboard</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" right>

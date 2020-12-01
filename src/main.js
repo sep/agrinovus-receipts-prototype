@@ -11,6 +11,7 @@ import TicketCaptor from '@/components/TicketCaptor.vue';
 import TicketViewer from '@/components/TicketViewer.vue';
 import LogIn from '@/components/LogIn.vue';
 import Account from '@/components/Account.vue';
+import Dashboard from '@/components/Dashboard.vue';
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
@@ -44,6 +45,11 @@ const routes = [
     name: 'account',
     path: '/account',
     component: Account,
+  },
+  {
+    name: 'dashboard',
+    path: '/dashboard',
+    component: Dashboard,
   },
 ];
 
