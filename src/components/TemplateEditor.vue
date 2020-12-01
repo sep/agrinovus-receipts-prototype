@@ -4,11 +4,19 @@
       :title="wizardTitle"
       :subtitle="wizardDescription"
       color="#3E92CC">
+      <tab-content
+        title="Select a Template"
+        icon="ti ti-image"
+        :beforeChange="readyToMarkRegions"
+        >
+        <select-ticket-template />
+      </tab-content>
 
-      <select-ticket-template />
-
-      <tab-content title="Mark Regions" icon="ti ti-pencil-alt">
-        Select the template regions
+      <tab-content
+        title="Mark Regions"
+        icon="ti ti-pencil-alt"
+        >
+        <mark-regions />
       </tab-content>
 
       <tab-content title="Finish" icon="ti ti-check">
@@ -19,10 +27,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import SelectTicketTemplate from '@/components/TemplateEditor/SelectTicketTemplate.vue';
+import MarkRegions from '@/components/TemplateEditor/MarkRegions.vue';
 
 export default {
-  components: { SelectTicketTemplate },
+  components: { SelectTicketTemplate, MarkRegions },
   name: 'TemplateEditor',
 
   head: {
@@ -48,6 +58,12 @@ export default {
 
   mounted() {
     this.templates = localStorage.getItem('ticketTemplates') || [];
+  },
+
+  methods: {
+    ...mapGetters({
+      readyToMarkRegions: 'templates/readyToMarkRegions',
+    }),
   },
 };
 </script>
