@@ -14,11 +14,8 @@ import TicketViewer from '@/components/TicketViewer.vue';
 import TemplateEditor from '@/components/TemplateEditor.vue';
 import LogIn from '@/components/LogIn.vue';
 import Account from '@/components/Account.vue';
-<<<<<<< HEAD
 import Dashboard from '@/components/Dashboard.vue';
-=======
 import store from './store';
->>>>>>> feea944... Finished the create/edit ticket template wizard page
 
 Vue.use(VueFormWizard);
 Vue.use(VueHead);

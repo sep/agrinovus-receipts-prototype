@@ -5,23 +5,11 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
+      <b-navbar-nav v-if="persona">
+        <b-nav-item to="/dashboard">Dashboard</b-nav-item>
+        <b-nav-item to="/tickets">View Tickets</b-nav-item>
         <b-nav-item to="/camera" v-if="persona == 'driver'">Capture Ticket</b-nav-item>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <b-nav-item to="/tickets" v-if="persona">View Tickets</b-nav-item>
-<<<<<<< HEAD
-        <b-nav-item to="/dashboard" v-if="persona">Dashboard</b-nav-item>
-=======
-=======
         <b-nav-item to="/templates" v-if="persona === 'driver'">Manage Templates</b-nav-item>
-        <b-nav-item to="/tickets">View Tickets</b-nav-item>
->>>>>>> 3ccb071... Added start of template page
->>>>>>> 3be7442... Added start of template page
-=======
-        <b-nav-item to="/tickets">View Tickets</b-nav-item>
-        <b-nav-item to="/templates" v-if="persona === 'driver'">Manage Templates</b-nav-item>
->>>>>>> feea944... Finished the create/edit ticket template wizard page
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" right>
