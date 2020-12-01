@@ -4,9 +4,8 @@
       :title="wizardTitle"
       :subtitle="wizardDescription"
       color="#3E92CC">
-      <tab-content title="Select a Template" icon="ti ti-image">
-        <select-ticket-template />
-      </tab-content>
+
+      <select-ticket-template />
 
       <tab-content title="Mark Regions" icon="ti ti-pencil-alt">
         Select the template regions
@@ -49,9 +48,6 @@ export default {
 
   mounted() {
     this.templates = localStorage.getItem('ticketTemplates') || [];
-  },
-
-  methods: {
   },
 };
 </script>

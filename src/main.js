@@ -1,9 +1,5 @@
 import Vue from 'vue';
-<<<<<<< HEAD
-import Vuex from 'vuex';
-=======
 import VueHead from 'vue-head';
->>>>>>> 3ccb071... Added start of template page
 import VueRouter from 'vue-router';
 import VueFormWizard from 'vue-form-wizard';
 import 'vue-form-wizard/dist/vue-form-wizard.min.css';
@@ -18,14 +14,14 @@ import TicketViewer from '@/components/TicketViewer.vue';
 import TemplateEditor from '@/components/TemplateEditor.vue';
 import LogIn from '@/components/LogIn.vue';
 import Account from '@/components/Account.vue';
-import Dashboard from '@/components/Dashboard.vue';
-
 <<<<<<< HEAD
-Vue.use(Vuex);
+import Dashboard from '@/components/Dashboard.vue';
 =======
+import store from './store';
+>>>>>>> feea944... Finished the create/edit ticket template wizard page
+
 Vue.use(VueFormWizard);
 Vue.use(VueHead);
->>>>>>> 3ccb071... Added start of template page
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
@@ -74,30 +70,6 @@ const router = new VueRouter({
   mode: 'history',
   base: '/agrinovus-receipts-prototype/',
   routes,
-});
-
-const store = new Vuex.Store({
-  state: {
-    persona: '',
-    name: '',
-    email: '',
-  },
-  mutations: {
-    setPersona(state, newPersona) {
-      state.persona = newPersona;
-    },
-    setName(state, newName) {
-      state.name = newName;
-    },
-    setEmail(state, newEmail) {
-      state.email = newEmail;
-    },
-    clear(state) {
-      state.persona = '';
-      state.name = '';
-      state.email = '';
-    },
-  },
 });
 
 new Vue({

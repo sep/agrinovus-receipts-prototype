@@ -8,6 +8,7 @@
       <b-navbar-nav>
         <b-nav-item to="/camera" v-if="persona == 'driver'">Capture Ticket</b-nav-item>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <b-nav-item to="/tickets" v-if="persona">View Tickets</b-nav-item>
 <<<<<<< HEAD
         <b-nav-item to="/dashboard" v-if="persona">Dashboard</b-nav-item>
@@ -17,6 +18,10 @@
         <b-nav-item to="/tickets">View Tickets</b-nav-item>
 >>>>>>> 3ccb071... Added start of template page
 >>>>>>> 3be7442... Added start of template page
+=======
+        <b-nav-item to="/tickets">View Tickets</b-nav-item>
+        <b-nav-item to="/templates" v-if="persona === 'driver'">Manage Templates</b-nav-item>
+>>>>>>> feea944... Finished the create/edit ticket template wizard page
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" right>
@@ -42,11 +47,11 @@ export default {
   name: 'NavBar',
   computed: {
     persona() {
-      return this.$store.state.persona;
+      return this.$store.state.user.persona;
     },
   },
   methods: {
-    ...mapMutations(['clear']),
+    ...mapMutations({ clear: 'user/clear' }),
     logout() {
       this.clear();
       this.$router.push({ name: 'home' });

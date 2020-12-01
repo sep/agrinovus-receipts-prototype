@@ -55,11 +55,11 @@ export default {
     };
   },
   methods: {
-    ...mapMutations([
-      'setPersona',
-      'setName',
-      'setEmail',
-    ]),
+    ...mapMutations({
+      setPersona: 'user/setPersona',
+      setName: 'user/setName',
+      setEmail: 'user/setEmail',
+    }),
     onSubmit(evt) {
       evt.preventDefault();
 
