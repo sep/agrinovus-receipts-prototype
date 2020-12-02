@@ -33,8 +33,9 @@ export default {
     const staticImages = require.context('@/assets/tickets/', true, /\.png$/);
     this.importContext(staticImages);
 
-    const uploadedImages = JSON.parse(localStorage.getItem('uploadedImages')) || [];
-    this.importArray(uploadedImages);
+    const serializedImageMap = localStorage.getItem('uploadedImages');
+    const uploadedImages = JSON.parse(serializedImageMap);
+    this.images.push(...uploadedImages);
   },
   methods: {
     importContext(r) {
@@ -45,13 +46,6 @@ export default {
         pathShort: key,
         name: key.replace(FILE_NAME_REGEX, '$2'),
       })));
-    },
-    importArray(images) {
-      images.forEach((path, index) => this.images.push({
-        pathLong: path,
-        pathShort: index,
-        name: 'Home',
-      }));
     },
   },
 };

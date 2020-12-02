@@ -3,6 +3,8 @@ import VueHead from 'vue-head';
 import VueRouter from 'vue-router';
 import VueFormWizard from 'vue-form-wizard';
 import 'vue-form-wizard/dist/vue-form-wizard.min.css';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -20,6 +22,7 @@ import store from './store';
 Vue.use(VueFormWizard);
 Vue.use(VueHead);
 Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 

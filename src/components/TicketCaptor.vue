@@ -11,6 +11,7 @@
     <b-row align-h="center">
       <div class='col-md-6'>
         <h1>Capture Ticket</h1>
+        <p><b-icon-geo-alt/> {{this.location}}</p>
         <b-img v-if='this.img' :src='this.img' fluid/>
         <web-cam
           :hidden="img"
@@ -64,12 +65,16 @@ export default {
       devices: [],
       dismissSecs: 3,
       dismissCountDown: 0,
+      location: '',
     };
   },
   computed: {
     device() {
       return this.devices.find((n) => n.deviceId === this.deviceId);
     },
+  },
+  mounted() {
+    this.saveCurrentLocation();
   },
   watch: {
     camera(id) {
@@ -104,8 +109,14 @@ export default {
       }
     },
     onSaveTicket() {
-      const images = JSON.parse(localStorage.getItem('uploadedImages')) || [];
-      images.push(this.img);
+      const serializedImage = localStorage.getItem('uploadedImages');
+      const images = JSON.parse(serializedImage) || [];
+      const imageToSave = {
+        pathLong: this.img,
+        pathShort: images.length + 1,
+        name: this.location,
+      };
+      images.push(imageToSave);
       localStorage.setItem('uploadedImages', JSON.stringify(images));
 
       this.img = null;
@@ -119,6 +130,18 @@ export default {
     },
     showAlert() {
       this.dismissCountDown = this.dismissSecs;
+    },
+    saveCurrentLocation() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.$http
+          .get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=grain%20elevator&inputtype=textquery&fields=name&locationbias=circle:200@${position.coords.latitude},${position.coords.longitude}&key=AIzaSyAe_itPE6fHbm8d9FWOfHercVThIN9LHvE`)
+          .then((response) => {
+            const possibleBusinesses = response.data.candidates;
+            if (possibleBusinesses.length > 0) {
+              this.location = possibleBusinesses[0].name;
+            }
+          });
+      });
     },
   },
 };
