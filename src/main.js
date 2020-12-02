@@ -10,11 +10,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'es6-promise/auto';
 import App from '@/App.vue';
-import Home from '@/components/Home.vue';
 import TicketCaptor from '@/components/TicketCaptor.vue';
 import TicketViewer from '@/components/TicketViewer.vue';
 import TemplateEditor from '@/components/TemplateEditor.vue';
-import LogIn from '@/components/LogIn.vue';
+import SignIn from '@/components/SignIn.vue';
+import SignUp from '@/components/SignUp.vue';
 import Account from '@/components/Account.vue';
 import Dashboard from '@/components/Dashboard.vue';
 import store from './store';
@@ -32,7 +32,7 @@ const routes = [
   {
     name: 'home',
     path: '/',
-    component: Home,
+    component: SignIn,
   },
   {
     name: 'camera',
@@ -50,9 +50,9 @@ const routes = [
     component: TemplateEditor,
   },
   {
-    name: 'login',
-    path: '/login',
-    component: LogIn,
+    name: 'signup',
+    path: '/signup',
+    component: SignUp,
   },
   {
     name: 'account',
@@ -60,8 +60,8 @@ const routes = [
     component: Account,
   },
   {
-    name: 'dashboard',
-    path: '/dashboard',
+    name: 'stats',
+    path: '/stats',
     component: Dashboard,
   },
 ];

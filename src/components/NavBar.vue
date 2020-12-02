@@ -6,14 +6,13 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav v-if="persona">
-        <b-nav-item to="/dashboard">Dashboard</b-nav-item>
-        <b-nav-item to="/tickets">View Tickets</b-nav-item>
-        <b-nav-item to="/camera" v-if="persona == 'driver'">Capture Ticket</b-nav-item>
-        <b-nav-item to="/templates" v-if="persona === 'driver'">Manage Templates</b-nav-item>
+        <b-nav-item to="/tickets">Tickets</b-nav-item>
+        <b-nav-item to="/templates">Templates</b-nav-item>
+        <b-nav-item to="/stats">Stats</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" right>
-        <b-nav-item to="/login" v-if="!persona"><b-icon-person-fill/> Sign Up</b-nav-item>
+        <b-nav-item to="/signup" v-if="!persona"><b-icon-person-fill/> Sign Up</b-nav-item>
         <template v-else>
           <b-nav-item-dropdown right>
             <template #button-content>

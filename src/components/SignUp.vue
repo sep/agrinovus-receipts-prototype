@@ -43,7 +43,7 @@
 import { mapMutations } from 'vuex';
 
 export default {
-  name: 'LogIn',
+  name: 'SignUp',
   data() {
     return {
       form: {
