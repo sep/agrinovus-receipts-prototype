@@ -21,15 +21,18 @@
 
       <b-button type="submit" variant="primary" block>Sign in</b-button>
     </b-form>
+    <powered-by/>
   </b-container>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
 import Chance from 'chance';
+import PoweredBy from '@/components/PoweredBy.vue';
 
 export default {
   name: 'SignIn',
+  components: { PoweredBy },
   data() {
     return {
       form: {
@@ -72,7 +75,7 @@ export default {
 #btn-radios-1 {
     width: 100%;
 }
-form {
+.container {
   max-width: 350px;
   margin: auto;
 }

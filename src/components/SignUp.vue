@@ -44,14 +44,17 @@
 
       <b-button type="submit" variant="primary" block>Sign Up</b-button>
     </b-form>
+    <powered-by/>
   </b-container>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
+import PoweredBy from '@/components/PoweredBy.vue';
 
 export default {
   name: 'SignUp',
+  components: { PoweredBy },
   data() {
     return {
       form: {
