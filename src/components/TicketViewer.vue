@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <b-button to="/camera" v-b-tooltip.hover title="Add new ticket" class="mx-3 float-right">
+  <b-container>
+    <b-button to="/camera" v-b-tooltip.hover title="Add new ticket" class="float-right">
       <b-icon-plus-circle/>
     </b-button>
-    <b-form-group label="Group By">
+    <b-form-group class="group-by-radio" label="Group By">
       <b-form-radio-group
         v-model="selected"
         :options="options"
@@ -16,7 +16,7 @@
     </ticket-list-by-account>
     <ticket-list-by-account v-if="selected == 2" :group-map="this.groupsByProduct">
     </ticket-list-by-account>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -103,3 +103,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.group-by-radio {
+  width: 100%;
+}
+</style>
