@@ -3,7 +3,8 @@
     <form-wizard
       title=""
       subtitle=""
-      color="#3E92CC">
+      color="#3E92CC"
+      @on-complete="onComplete">
       <tab-content
         title="Select a Template"
         icon="ti ti-image"
@@ -60,6 +61,9 @@ export default {
     ...mapGetters({
       readyToMarkRegions: 'templates/readyToMarkRegions',
     }),
+    onComplete() {
+      this.$router.push({ name: 'tickets' });
+    },
   },
 };
 </script>
