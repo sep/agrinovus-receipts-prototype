@@ -2,9 +2,9 @@
   <div class="mt-4 mb-4">
     <!-- Create a new template -->
     <div>
-      <h4>Create a new template</h4>
-
-      <br>
+      <p>Templates help us process the contents of a ticket. The process is simple.
+        Just select an image and draw a box around the different fields of the invoice.
+        That's it. We'll take it from there.</p>
 
       <!-- Template Name -->
       <b-row>

@@ -1,6 +1,5 @@
 <template>
   <div class="mt-4 mb-4">
-    <h5>Mark Regions</h5>
     <p>Click and drag over the image to mark the different regions of the ticket.</p>
     <div id="region-editor">
       <canvas id:="editor-canvas" class="canvas-style" v-on:mousedown="mouseDown" />

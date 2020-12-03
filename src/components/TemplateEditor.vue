@@ -1,8 +1,8 @@
 <template>
   <b-container>
     <form-wizard
-      :title="wizardTitle"
-      :subtitle="wizardDescription"
+      title=""
+      subtitle=""
       color="#3E92CC">
       <tab-content
         title="Select a Template"
@@ -20,7 +20,8 @@
       </tab-content>
 
       <tab-content title="Finish" icon="ti ti-check">
-        Finish editing template
+        Click "Finish" to apply template to existing tickets,
+        and enable it to be run automatically against future tickets.
       </tab-content>
     </form-wizard>
   </b-container>
@@ -46,11 +47,6 @@ export default {
 
   data() {
     return {
-      wizardTitle: 'Create or Edit a Ticket Template',
-      wizardDescription:
-        'Templates help us process the contents of a ticket. '
-        + 'The process is simple. Just select an image and draw a box around '
-        + 'the different fields of the invoice. That\'s it. We\'ll take it from there.',
       templates: [],
       canvas: null,
     };

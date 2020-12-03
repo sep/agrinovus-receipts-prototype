@@ -51,7 +51,7 @@ const routes = [
     name: 'templates',
     path: '/templates',
     component: TemplateEditor,
-    meta: { title: 'Templates' },
+    meta: { title: 'Process Ticket Data Using Templates' },
   },
   {
     name: 'signup',
