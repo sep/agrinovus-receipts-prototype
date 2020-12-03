@@ -1,5 +1,8 @@
 <template>
   <b-container>
+    <b-button to="/camera" v-b-tooltip.hover title="Add new ticket" class="float-right">
+      <b-icon-plus-circle/>
+    </b-button>
     <ticket-list-by-elevator :group-map="this.groupsByElevator"></ticket-list-by-elevator>
   </b-container>
 </template>
