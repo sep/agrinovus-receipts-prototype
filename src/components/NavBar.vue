@@ -18,10 +18,10 @@
               <b-icon-bell-fill/><sup><b-badge pill variant="light">2</b-badge></sup>
             </template>
             <b-dropdown-header>Notifications</b-dropdown-header>
-            <b-dropdown-text>
+            <b-dropdown-text style="width:max-content;">
               <small><b-icon-credit-card/> Bunge missing payment</small>
             </b-dropdown-text>
-            <b-dropdown-text>
+            <b-dropdown-text style="width:max-content;">
               <small><b-icon-minecart-loaded/> Ingredion contract fulfilled</small>
             </b-dropdown-text>
         </b-nav-item-dropdown>
