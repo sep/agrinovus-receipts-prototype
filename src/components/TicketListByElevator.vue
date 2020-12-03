@@ -1,11 +1,12 @@
 <template>
   <b-container>
-    <h2 class='text-muted'>Tickets by Elevator</h2>
+    <h3 class='text-muted'>Tickets by Elevator</h3>
     <div class="accordion" role="tablist">
       <template v-for="(group, name, i) in groupMap">
         <b-card :key="i" no-body class="mb-1">
           <b-card-header header-tag="header" class="p-1 text-left">
             {{name}}
+            <b-link v-if="i == 1" class="float-right"><b-icon-minecart-loaded/> 90%</b-link>
           </b-card-header>
           <b-card-body>
             <b-card-group deck :key="i" v-for="(img, i) in group">
