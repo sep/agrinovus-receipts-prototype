@@ -73,10 +73,10 @@ export default {
       this.deviceId = id;
     },
     devices() {
-      const first = this.devices[0];
-      if (first) {
-        this.camera = first.deviceId;
-        this.deviceId = first.deviceId;
+      const last = this.devices.slice(-1).pop();
+      if (last) {
+        this.camera = last.deviceId;
+        this.deviceId = last.deviceId;
       }
     },
   },
