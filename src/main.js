@@ -33,36 +33,43 @@ const routes = [
     name: 'home',
     path: '/',
     component: SignIn,
+    meta: { title: 'Sign In' },
   },
   {
     name: 'camera',
     path: '/camera',
     component: TicketCaptor,
+    meta: { title: 'Capture Ticket' },
   },
   {
     name: 'tickets',
     path: '/tickets',
     component: TicketViewer,
+    meta: { title: 'Tickets' },
   },
   {
     name: 'templates',
     path: '/templates',
     component: TemplateEditor,
+    meta: { title: 'Templates' },
   },
   {
     name: 'signup',
     path: '/signup',
     component: SignUp,
+    meta: { title: 'Sign Up' },
   },
   {
     name: 'account',
     path: '/account',
     component: Account,
+    meta: { title: 'Account' },
   },
   {
     name: 'stats',
     path: '/stats',
     component: Dashboard,
+    meta: { title: 'Your Stats' },
   },
 ];
 

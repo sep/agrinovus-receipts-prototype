@@ -49,7 +49,7 @@ export default {
       evt.preventDefault();
       const persona = this.form.email.includes('farmer') ? 'farmer' : 'driver';
       this.setPersona(persona);
-      this.setName(new Chance().name({ nationality: 'en' }));
+      this.setName(new Chance().name({ nationality: 'en', gender: 'male' }));
       this.setEmail(this.form.email);
 
       this.$router.push({ name: 'tickets' });

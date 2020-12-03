@@ -1,6 +1,5 @@
 <template>
   <b-container>
-    <h1>View Tickets</h1>
     <ticket-list-by-elevator :group-map="this.groupsByElevator"></ticket-list-by-elevator>
   </b-container>
 </template>

@@ -10,7 +10,6 @@
       @dismiss-count-down="countDownChanged">Ticket uploaded successfully.</b-alert>
     <b-row align-h="center">
       <div class='col-md-6'>
-        <h1>Capture Ticket</h1>
         <p><b-icon-geo-alt/> {{this.location}}</p>
         <b-img v-if='this.img' :src='this.img' fluid/>
         <web-cam
