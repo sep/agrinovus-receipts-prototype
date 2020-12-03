@@ -14,6 +14,8 @@
     </ticket-list-by-elevator>
     <ticket-list-by-account v-if="selected == 1" :group-map="this.groupsByAccount">
     </ticket-list-by-account>
+    <ticket-list-by-account v-if="selected == 2" :group-map="this.groupsByProduct">
+    </ticket-list-by-account>
   </div>
 </template>
 
@@ -34,6 +36,7 @@ export default {
       options: [
         { text: 'Elevator', value: 0 },
         { text: 'Account', value: 1 },
+        { text: 'Product', value: 2 },
       ],
     };
   },
@@ -56,6 +59,19 @@ export default {
         const randomIndex = Math.floor(Math.random() * this.linkedAccounts.length);
         const randomAccount = this.linkedAccounts[randomIndex];
         const groupName = randomAccount.name;
+        const group = map[groupName] || [];
+        group.push(obj);
+        // eslint-disable-next-line no-param-reassign
+        map[groupName] = group;
+        return map;
+      }, {});
+    },
+    groupsByProduct() {
+      const products = ['Soy', 'Corn', 'Wheat'];
+      return this.images.reduce((map, obj) => {
+        const randomIndex = Math.floor(Math.random() * products.length);
+        const randomProduct = products[randomIndex];
+        const groupName = randomProduct;
         const group = map[groupName] || [];
         group.push(obj);
         // eslint-disable-next-line no-param-reassign
