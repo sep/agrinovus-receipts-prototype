@@ -12,11 +12,11 @@
               <b-card img-left :img-src="img.pathLong" align="right">
                 <b-card-text>
                   <b-row>
-                    <b-col>{{ new Date().toDateString() }}</b-col>
-                    <b-col>967.33 BU</b-col>
+                    <b-col>{{ chance.date({string: true, year: 2020 }) }}</b-col>
+                    <b-col>{{ chance.floating({ min: 800, max: 1000, fixed: 2 }) }} BU</b-col>
                     <b-col>
-                      <b-badge class='mr-1' variant="primary" v-if="i%2 == 0">Processed</b-badge>
-                      <b-badge variant="success">Paid</b-badge>
+                      <b-badge class='mr-1' variant="danger" v-if="i%2 == 1">Not Processed</b-badge>
+                      <b-badge variant="success" v-if="i % 3 == 0">Paid</b-badge>
                     </b-col>
                   </b-row>
                 </b-card-text>
@@ -30,9 +30,16 @@
 </template>
 
 <script>
+import Chance from 'chance';
+
 export default {
   name: 'TicketListByElevator',
   props: ['groupMap'],
+  computed: {
+    chance() {
+      return new Chance();
+    },
+  },
 };
 </script>
 
