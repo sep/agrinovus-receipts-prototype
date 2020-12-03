@@ -21,15 +21,8 @@
           @camera-change='onCameraChange'
         />
 
-        <b-row class='actions' align-h="center">
+        <b-row class='actions' align-h="between">
           <b-col>
-            <b-button
-              :disabled='this.devices.length < 2'
-              size="lg"
-              variant="outline-secondary"
-              @click='onShuffleCamera'>
-              <b-icon icon="arrow-repeat" aria-label="Change Camera"></b-icon>
-            </b-button>
           </b-col>
           <b-col>
             <b-button v-if='this.img' size="lg" variant="primary" @click='onSaveTicket'>
@@ -98,15 +91,6 @@ export default {
       this.deviceId = deviceId;
       this.camera = deviceId;
     },
-    onShuffleCamera() {
-      const currentIndex = this.devices.findIndex((n) => n.deviceId === this.deviceId);
-      const nextIndex = (currentIndex + 1) % this.devices.length;
-      const nextDevice = this.devices[nextIndex];
-      if (nextDevice) {
-        this.camera = nextDevice.deviceId;
-        this.deviceId = nextDevice.deviceId;
-      }
-    },
     onSaveTicket() {
       const serializedImage = localStorage.getItem('uploadedImages');
       const images = JSON.parse(serializedImage) || [];
@@ -149,8 +133,7 @@ export default {
 <style scoped>
 .actions {
   position: fixed;
-  bottom: 1em;
+  bottom: 3em;
   width: 100%;
-  margin-left: -24px;
 }
 </style>
