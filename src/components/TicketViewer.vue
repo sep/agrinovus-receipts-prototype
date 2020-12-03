@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import TicketListByElevator from '@/components/TicketListByElevator.vue';
-import TicketListByAccountVue from './TicketListByAccount.vue';
+import TicketListByElevator from '@/components/TicketViewer/TicketListByElevator.vue';
+import TicketListByAccountVue from '@/components/TicketViewer/TicketListByAccount.vue';
 
 export default {
   name: 'TicketViewer',

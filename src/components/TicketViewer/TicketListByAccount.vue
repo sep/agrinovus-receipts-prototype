@@ -1,6 +1,5 @@
 <template>
   <b-container>
-    <h3 class='text-muted'>Tickets by Account</h3>
     <div class="accordion" role="tablist">
       <template v-for="(group, name, i) in groupMap">
         <b-card :key="i" no-body class="mb-1">
