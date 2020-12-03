@@ -34,6 +34,14 @@
         </b-form-radio-group>
       </b-form-group>
 
+      <b-form-group label="Password" label-align="left" label-for="input-2">
+        <b-form-input
+          id="input-2"
+          type="password"
+          required
+        ></b-form-input>
+      </b-form-group>
+
       <b-button type="submit" variant="primary" block>Sign Up</b-button>
     </b-form>
   </b-container>
@@ -87,5 +95,9 @@ export default {
 <style scoped>
 #btn-radios-1 {
     width: 100%;
+}
+form {
+  max-width: 350px;
+  margin: auto;
 }
 </style>

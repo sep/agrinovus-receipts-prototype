@@ -72,4 +72,8 @@ export default {
 #btn-radios-1 {
     width: 100%;
 }
+form {
+  max-width: 350px;
+  margin: auto;
+}
 </style>
