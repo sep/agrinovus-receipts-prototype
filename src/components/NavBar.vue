@@ -12,6 +12,18 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" right>
+        <b-nav-item-dropdown right no-caret>
+            <template #button-content>
+              <b-icon-bell-fill/><sup><b-badge pill variant="light">2</b-badge></sup>
+            </template>
+            <b-dropdown-header>Notifications</b-dropdown-header>
+            <b-dropdown-text>
+              <small><b-icon-credit-card/> Bunge missing payment</small>
+            </b-dropdown-text>
+            <b-dropdown-text>
+              <small><b-icon-minecart-loaded/> Ingredion contract fulfilled</small>
+            </b-dropdown-text>
+        </b-nav-item-dropdown>
         <b-nav-item to="/signup" v-if="!persona"><b-icon-person-fill/> Sign Up</b-nav-item>
         <template v-else>
           <b-nav-item-dropdown right>
