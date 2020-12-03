@@ -18,6 +18,11 @@
 <script>
 export default {
   name: 'Dashboard',
+  computed: {
+    persona() {
+      return this.$store.state.user.persona;
+    },
+  },
   methods: {
     downloadCSVData() {
       const csv = 'Test';
