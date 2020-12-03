@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import Chance from 'chance';
 
 export default {
@@ -66,7 +67,6 @@ export default {
     return {
       searchCriteria: '',
       accountToLink: '',
-      accounts: [],
       chance: new Chance(),
     };
   },
@@ -85,6 +85,9 @@ export default {
     persona() {
       return this.$store.state.user.persona;
     },
+    accounts() {
+      return this.$store.state.user.accounts;
+    },
     searchResults() {
       return {
         html: true,
@@ -92,21 +95,15 @@ export default {
       };
     },
   },
-  mounted() {
-    this.accounts = JSON.parse(localStorage.getItem('accounts'));
-  },
   methods: {
+    ...mapMutations({ addNewAccount: 'user/addNewAccount' }),
     onAddAccount() {
       const newAccount = {
         guid: this.chance.guid(),
         name: this.accountToLink,
       };
 
-      const accounts = JSON.parse(localStorage.getItem('accounts')) || [];
-      accounts.push(newAccount);
-      localStorage.setItem('accounts', JSON.stringify(accounts));
-
-      this.accounts = accounts;
+      this.addNewAccount(newAccount);
       this.searchCriteria = null;
     },
     onAccountLinkChange(value) {

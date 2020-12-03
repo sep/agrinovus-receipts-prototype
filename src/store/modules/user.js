@@ -2,6 +2,7 @@ const initialState = () => ({
   name: '',
   email: '',
   persona: '',
+  accounts: [],
 });
 
 const mutations = {
@@ -15,6 +16,11 @@ const mutations = {
 
   setEmail(state, newEmail) {
     state.email = newEmail;
+  },
+
+  addNewAccount(state, newAccount) {
+    state.accounts = state.accounts || [];
+    state.accounts.push(newAccount);
   },
 
   clear(state) {
