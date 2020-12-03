@@ -1,7 +1,8 @@
 <template>
   <div>
     <b-button
-      @click="downloadCSVData"
+      href="/ExampleCropTicketData.csv"
+      download
       v-b-tooltip.hover title="Export your raw data to CSV"
       class="mx-3 float-right">
       <b-icon-file-earmark-bar-graph/> Export
@@ -21,17 +22,6 @@ export default {
   computed: {
     persona() {
       return this.$store.state.user.persona;
-    },
-  },
-  methods: {
-    downloadCSVData() {
-      const csv = 'Test';
-
-      const anchor = document.createElement('a');
-      anchor.href = `data:text/csv;charset=utf-8,${encodeURIComponent(csv)}`;
-      anchor.target = '_blank';
-      anchor.download = 'raw.csv';
-      anchor.click();
     },
   },
 };
