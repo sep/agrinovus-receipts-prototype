@@ -11,7 +11,7 @@
             <b-card-group deck :key="i" v-for="(img, i) in group">
               <b-card img-left :img-src="img.pathLong" align="right">
                 <b-card-text>
-                  <b-row>
+                  <b-row cols="1" cols-md="3">
                     <b-col>{{ chance.date({string: true, year: 2020 }) }}</b-col>
                     <b-col>{{ chance.floating({ min: 800, max: 1000, fixed: 2 }) }} BU</b-col>
                     <b-col>
@@ -46,5 +46,6 @@ export default {
 <style scoped>
 img {
   height: 100px;
+  width: 100px;
 }
 </style>
