@@ -2,9 +2,10 @@
   <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand to="/">Ticket Booth</b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-navbar-toggle target="sidebar"></b-navbar-toggle>
+    <side-bar/>
 
-    <b-collapse id="nav-collapse" is-nav>
+    <b-collapse is-nav>
       <b-navbar-nav v-if="persona">
         <b-nav-item to="/tickets">Tickets</b-nav-item>
         <b-nav-item to="/templates">Templates</b-nav-item>
@@ -41,9 +42,11 @@
 
 <script>
 import { mapMutations } from 'vuex';
+import SideBar from '@/components/NavBar/SideBar.vue';
 
 export default {
   name: 'NavBar',
+  components: { SideBar },
   computed: {
     persona() {
       return this.$store.state.user.persona;
