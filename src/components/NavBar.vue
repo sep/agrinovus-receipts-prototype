@@ -12,7 +12,7 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" right>
-        <b-nav-item-dropdown right no-caret>
+        <b-nav-item-dropdown right no-caret v-if="persona == 'farmer'">
             <template #button-content>
               <b-icon-bell-fill/><sup><b-badge pill variant="light">2</b-badge></sup>
             </template>
