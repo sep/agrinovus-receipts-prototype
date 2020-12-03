@@ -35,7 +35,7 @@ export default {
       selected: 0,
       options: [
         { text: 'Elevator', value: 0 },
-        { text: 'Account', value: 1 },
+        { text: 'Account', value: 1, disabled: true },
         { text: 'Product', value: 2 },
       ],
     };
@@ -87,6 +87,8 @@ export default {
     const serializedImageMap = localStorage.getItem('uploadedImages');
     const uploadedImages = JSON.parse(serializedImageMap);
     this.images.push(...uploadedImages);
+
+    this.options[1].disabled = this.linkedAccounts.length === 0;
   },
   methods: {
     importContext(r) {
