@@ -122,6 +122,8 @@ export default {
             const possibleBusinesses = response.data.candidates;
             if (possibleBusinesses.length > 0) {
               this.location = possibleBusinesses[0].name;
+            } else {
+              this.location = '  No elevator detected within 200m';
             }
           });
       });
