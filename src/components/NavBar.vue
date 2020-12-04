@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand to="/">Ticket Booth</b-navbar-brand>
+    <b-navbar-brand>Ticket Booth</b-navbar-brand>
 
     <b-navbar-toggle target="sidebar"></b-navbar-toggle>
     <side-bar/>
