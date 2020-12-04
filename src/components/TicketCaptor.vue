@@ -123,7 +123,7 @@ export default {
             if (possibleBusinesses.length > 0) {
               this.location = possibleBusinesses[0].name;
             } else {
-              this.location = ' Unknown';
+              this.location = 'Unknown';
             }
           });
       });
