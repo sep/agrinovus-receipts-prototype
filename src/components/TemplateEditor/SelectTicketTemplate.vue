@@ -38,7 +38,7 @@
             <div
               v-for="ticket in existingTickets"
               v-bind:key="ticket.pathLong"
-              v-bind:class="{ 'bg-primary': ticket.pathLong === selectedTicket }"
+              v-bind:class="{ 'bg-primary': shouldHighlightTicket(ticket) }"
               v-on:click="setNewTemplateTicket(ticket)"
             >
               <img
@@ -112,6 +112,10 @@ export default {
       addTemplate: 'templates/addTemplate',
       setExistingTemplates: 'templates/setExistingTemplates',
     }),
+
+    shouldHighlightTicket(ticket) {
+      return this.selectedTicket !== null && this.selectedTicket === ticket.pathLong;
+    },
   },
 };
 </script>

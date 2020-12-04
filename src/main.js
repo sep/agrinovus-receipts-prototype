@@ -17,7 +17,7 @@ import SignIn from '@/components/SignIn.vue';
 import SignUp from '@/components/SignUp.vue';
 import Account from '@/components/Account.vue';
 import Dashboard from '@/components/Dashboard.vue';
-import store from './store';
+import store from '@/store';
 
 Vue.use(VueFormWizard);
 Vue.use(VueHead);

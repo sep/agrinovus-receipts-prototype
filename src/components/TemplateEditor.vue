@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container id="template-editor-container">
     <form-wizard
       title=""
       subtitle=""

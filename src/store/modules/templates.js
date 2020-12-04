@@ -23,6 +23,8 @@ const getters = {
       && !!state.newTemplate.ticket,
 
   selectedTicket: (state) => state.newTemplate.ticket?.pathLong,
+
+  newTemplateRegions: (state) => state.newTemplate.regions,
 };
 
 const mutations = {
@@ -31,11 +33,15 @@ const mutations = {
   },
 
   setNewTemplateTicket(state, newTicket) {
-    state.newTemplate.ticket = newTicket;
+    if (state.newTemplate) state.newTemplate.ticket = newTicket;
   },
 
   addRegion(state, newRegion) {
     state.newTemplate.regions = Array.concat(state.newTemplate.regions, [newRegion]);
+  },
+
+  setRegions(state, newRegions) {
+    state.newTemplate.regions = newRegions;
   },
 
   addTemplate(state, newTemplate) {

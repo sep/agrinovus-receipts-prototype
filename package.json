@@ -16,7 +16,7 @@
     "chance": "^1.1.7",
     "core-js": "^3.6.5",
     "es6-promise": "^4.2.8",
-    "paper": "^0.12.11",
+    "fabric": "^4.2.0",
     "vue": "^2.6.12",
     "vue-axios": "^3.2.0",
     "vue-form-wizard": "^0.8.4",
